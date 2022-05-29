@@ -1,6 +1,6 @@
-var getNum = new Array();
-var numLength;
-var check = true;
+let getNum = new Array();
+let numLength;
+let check = true;
 
 window.onload = function() {
 	numLength = document.getElementById("select").value;
@@ -10,7 +10,7 @@ window.onload = function() {
 //Generates random numbers from 1 (included) to 9 (included)
 //Numbers must not be the same as each other
 function setNumber() {
-	var random;
+	let random;
 	getNum.splice(0, getNum.length - 1);
 	while (getNum.length < numLength) 
 	{
@@ -37,10 +37,10 @@ function setNumber() {
 //Check user number
 function checkUserText() {
 	let userText = document.getElementById("userText").value;
-	var setText = document.getElementById("textArea");
+	let setText = document.getElementById("textArea");
 	let numbers = [];
-	//Check if userText is number
-	for (var i = 0; i < userText.length; i++) {
+	//Check if userText is number between 1 and 9
+	for (let i = 0; i < userText.length; i++) {
 		numbers.push(userText[i]);
 		
 		if (userText.charCodeAt(i) <= 48 || userText.charCodeAt(i) > 57 || userText.length != numLength) 
@@ -49,7 +49,6 @@ function checkUserText() {
 			check = false;
 			break;
 		}
-		
 	}
 	
 	//Check if user entered a number with different digits
@@ -86,7 +85,7 @@ function checkUserText() {
 
 		if (userText == "") 
 		{
-			setText.innerHTML += "\nType " + numLength + " numbers!\n";
+			setText.innerHTML += "Type " + numLength + " numbers!\n";
 		} else if (bull == 0 && cow == 0) 
 		{
 			setText.innerHTML += userText + " : 0 bull(s), 0 cow(s)\n";
